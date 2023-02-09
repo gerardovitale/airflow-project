@@ -1,7 +1,8 @@
 import datetime
 
-from airflow import DAG, Dataset
+from airflow import DAG
 from airflow.decorators import task
+
 from datasets import temp_file
 
 with DAG(
@@ -12,7 +13,8 @@ with DAG(
 ):
     @task
     def read_dataset():
-        with open(temp_file.uri, 'r')as file:
+        with open(temp_file.uri, 'r') as file:
             print(file.read())
+
 
     read_dataset()

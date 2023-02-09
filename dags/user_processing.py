@@ -39,7 +39,6 @@ with DAG(
     start_date=datetime.datetime(2022, 11, 26, 22, 15),
     catchup=False,  # no executed until the scheduled date
 ) as dag:
-
     # task_ids must be unique in the scope of a DAG
     create_table = PostgresOperator(
         task_id='create_table',
